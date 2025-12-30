@@ -37,15 +37,19 @@ export class CalendarPage {
   editingAppointment = signal<Appointment | null>(null);
   selectedDate = signal<Date>(new Date());
 
+  onDateSelect(date: Date): void {
+    this.selectedDate.set(date);
+  }
+
   getAppointments(date: Date): Appointment[] {
     return this.appointmentService.getAppointmentsForDate(date);
   }
 
   openCreateModal(date?: Date): void {
-    this.editingAppointment.set(null);
     if (date) {
       this.selectedDate.set(date);
     }
+    this.editingAppointment.set(null);
     this.isModalVisible.set(true);
   }
 
