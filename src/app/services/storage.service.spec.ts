@@ -1,18 +1,10 @@
 import 'zone.js';
 import 'zone.js/testing';
 import { TestBed } from '@angular/core/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { StorageService } from './storage.service';
 import * as idbKeyval from 'idb-keyval';
 import { Appointment } from '../models/appointment.model';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
-
-// Initialize the Angular testing environment
-try {
-  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-} catch (e) {
-  // Environment already initialized
-}
 
 // Mock idb-keyval
 vi.mock('idb-keyval', () => {
@@ -30,6 +22,8 @@ describe('StorageService', () => {
   let service: StorageService;
 
   beforeEach(() => {
+    // We don't need initTestEnvironment if it's already done by the test runner
+    // or if we're using a simple setup.
     TestBed.configureTestingModule({});
     service = TestBed.inject(StorageService);
     vi.clearAllMocks();
@@ -45,8 +39,8 @@ describe('StorageService', () => {
       title: 'Test',
       startDate: new Date().toISOString(),
       category: 'work',
+      allDay: false,
       syncStatus: 'synced',
-      createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
 
@@ -55,7 +49,7 @@ describe('StorageService', () => {
     expect(idbKeyval.set).toHaveBeenCalledWith(
       appointment.id,
       appointment,
-      expect.anything() // this.appointmentsStore
+      expect.anything()
     );
   });
 
@@ -69,6 +63,16 @@ describe('StorageService', () => {
 
     expect(idbKeyval.entries).toHaveBeenCalled();
     expect(result).toEqual([{ id: '1', title: 'Test' }]);
+  });
+
+  it('should call idb-keyval get when getting a single appointment', async () => {
+    const mockApp = { id: '1', title: 'Test' } as Appointment;
+    (idbKeyval.get as any).mockResolvedValue(mockApp);
+
+    const result = await service.getAppointmentById('1');
+
+    expect(idbKeyval.get).toHaveBeenCalledWith('1', expect.anything());
+    expect(result).toEqual(mockApp);
   });
 
   it('should call idb-keyval del when deleting an appointment', async () => {
