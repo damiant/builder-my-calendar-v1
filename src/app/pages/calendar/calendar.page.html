@@ -1,0 +1,54 @@
+<div class="page-container">
+  <app-offline-indicator></app-offline-indicator>
+
+  <div class="page-header">
+    <div class="header-left">
+      <h1>My Appointments</h1>
+      <p class="subtitle">Manage your work and home schedule</p>
+    </div>
+    <div class="header-right">
+      <nz-select
+        [ngModel]="appointmentService.selectedCategories()"
+        (ngModelChange)="onCategoryChange($event)"
+        nzMode="multiple"
+        nzPlaceHolder="Filter by category"
+        class="category-filter"
+      >
+        <nz-option nzValue="work" nzLabel="Work"></nz-option>
+        <nz-option nzValue="home" nzLabel="Home"></nz-option>
+      </nz-select>
+      <button nz-button nzType="primary" (click)="openCreateModal()">
+        <span nz-icon nzType="plus"></span>
+        New Appointment
+      </button>
+    </div>
+  </div>
+
+  <div class="calendar-wrapper">
+    <nz-spin [nzSpinning]="appointmentService.loading()">
+      <nz-calendar>
+        <ul *nzDateCell="let date" class="events">
+          @for (item of getAppointments(date); track item.id) {
+          <li (click)="openEditModal($event, item)">
+            <nz-badge
+              [nzStatus]="item.category === 'work' ? 'processing' : 'error'"
+              [nzText]="item.title"
+              [class.pending]="item.syncStatus === 'pending'"
+            >
+            </nz-badge>
+          </li>
+          }
+        </ul>
+      </nz-calendar>
+    </nz-spin>
+  </div>
+
+  <app-appointment-modal
+    [visible]="isModalVisible()"
+    [appointment]="editingAppointment()"
+    (visibleChange)="isModalVisible.set($event)"
+    (save)="onSaveAppointment($event)"
+    (delete)="onDeleteAppointment($event)"
+  >
+  </app-appointment-modal>
+</div>
