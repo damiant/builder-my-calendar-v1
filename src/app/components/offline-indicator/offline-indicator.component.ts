@@ -11,26 +11,26 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   imports: [CommonModule, NzAlertModule, NzIconModule],
   template: `
     @if (!networkService.isOnline()) {
-    <div class="offline-banner">
-      <nz-alert
-        nzType="warning"
-        [nzMessage]="offlineMessage"
-        nzShowIcon
-        [nzDescription]="offlineDescription"
-      >
-        <ng-template #offlineMessage>
-          <span class="banner-title">You are currently offline</span>
-        </ng-template>
-        <ng-template #offlineDescription>
-          Your changes will be saved locally and synced automatically when you are back online.
-          @if (syncService.pendingCount() > 0) {
-          <div class="pending-count">
-            <strong>{{ syncService.pendingCount() }}</strong> pending changes waiting to sync.
-          </div>
-          }
-        </ng-template>
-      </nz-alert>
-    </div>
+      <div class="offline-banner">
+        <nz-alert
+          nzType="warning"
+          [nzMessage]="offlineMessage"
+          nzShowIcon
+          [nzDescription]="offlineDescription"
+        >
+          <ng-template #offlineMessage>
+            <span class="banner-title">You are currently offline</span>
+          </ng-template>
+          <ng-template #offlineDescription>
+            Your changes will be saved locally and synced automatically when you are back online.
+            @if (syncService.pendingCount() > 0) {
+              <div class="pending-count">
+                <strong>{{ syncService.pendingCount() }}</strong> pending changes waiting to sync.
+              </div>
+            }
+          </ng-template>
+        </nz-alert>
+      </div>
     }
   `,
   styles: [

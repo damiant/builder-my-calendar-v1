@@ -11,18 +11,23 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
   template: `
     <div class="sync-status" [nz-tooltip]="tooltipTemplate">
       @if (syncService.isSyncing()) {
-      <span nz-icon nzType="sync" [nzSpin]="true" class="syncing"></span>
+        <span nz-icon nzType="sync" [nzSpin]="true" class="syncing"></span>
       } @else if (syncService.pendingCount() > 0) {
-      <span nz-icon nzType="cloud-upload" class="pending"></span>
-      <span class="count">{{ syncService.pendingCount() }}</span>
+        <span nz-icon nzType="cloud-upload" class="pending"></span>
+        <span class="count">{{ syncService.pendingCount() }}</span>
       } @else {
-      <span nz-icon nzType="cloud" class="synced"></span>
+        <span nz-icon nzType="cloud" class="synced"></span>
       }
     </div>
 
     <ng-template #tooltipTemplate>
-      @if (syncService.isSyncing()) { Syncing changes... } @else if (syncService.pendingCount() > 0)
-      { {{ syncService.pendingCount() }} changes waiting to sync } @else { All changes synced }
+      @if (syncService.isSyncing()) {
+        Syncing changes...
+      } @else if (syncService.pendingCount() > 0) {
+        {{ syncService.pendingCount() }} changes waiting to sync
+      } @else {
+        All changes synced
+      }
     </ng-template>
   `,
   styles: [

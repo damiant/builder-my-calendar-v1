@@ -44,9 +44,7 @@ export class StorageService {
   async getPendingOperations(): Promise<PendingOperation[]> {
     try {
       const allEntries = await entries<string, PendingOperation>(this.operationsStore);
-      return allEntries
-        .map(([_, op]) => op)
-        .sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+      return allEntries.map(([_, op]) => op).sort((a, b) => a.timestamp.localeCompare(b.timestamp));
     } catch (error) {
       console.error('Failed to load pending operations from IndexedDB', error);
       return [];

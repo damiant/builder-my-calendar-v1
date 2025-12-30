@@ -1,5 +1,12 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
-import { Appointment, AppointmentCategory, createAppointment, generateUUID, formatDateKey, PendingOperation } from '../models/appointment.model';
+import {
+  Appointment,
+  AppointmentCategory,
+  createAppointment,
+  generateUUID,
+  formatDateKey,
+  PendingOperation,
+} from '../models/appointment.model';
 import { StorageService } from './storage.service';
 import { SyncService } from './sync.service';
 import { NetworkService } from './network.service';
@@ -159,12 +166,24 @@ export class AppointmentService {
       }),
       createAppointment({
         title: 'Dinner with friends',
-        startDate: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 19, 0).toISOString(),
+        startDate: new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate() + 1,
+          19,
+          0,
+        ).toISOString(),
         category: 'home',
       }),
       createAppointment({
         title: 'Project Deadline',
-        startDate: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2, 9, 0).toISOString(),
+        startDate: new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate() + 2,
+          9,
+          0,
+        ).toISOString(),
         category: 'work',
         allDay: true,
       }),
