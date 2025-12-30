@@ -51,6 +51,7 @@
   <app-appointment-modal
     [visible]="isModalVisible()"
     [appointment]="editingAppointment()"
+    [defaultDate]="selectedDate()"
     (visibleChange)="isModalVisible.set($event)"
     (save)="onSaveAppointment($event)"
     (delete)="onDeleteAppointment($event)"
