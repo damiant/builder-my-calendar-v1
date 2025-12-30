@@ -92,6 +92,23 @@ h6 {
   z-index: 100;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
 .app-main {
   flex: 1;
   padding: var(--spacing-lg);
