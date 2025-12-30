@@ -8,8 +8,10 @@ import en from '@angular/common/locales/en';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideNzIcons } from 'ng-zorro-antd/icon';
+import { environment } from '../environments/environment';
 import {
   CalendarOutline,
+  CalendarTwoTone,
   PlusOutline,
   SyncOutline,
   CloudUploadOutline,
@@ -28,6 +30,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideNzIcons([
       CalendarOutline,
+      CalendarTwoTone,
       PlusOutline,
       SyncOutline,
       CloudUploadOutline,
@@ -36,7 +39,7 @@ export const appConfig: ApplicationConfig = {
       CloudDownloadOutline,
     ]),
     provideServiceWorker('ngsw-worker.js', {
-      enabled: true,
+      enabled: environment.production,
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],

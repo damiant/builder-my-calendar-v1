@@ -6,8 +6,8 @@ import { Appointment, PendingOperation } from '../models/appointment.model';
   providedIn: 'root',
 })
 export class StorageService {
-  private appointmentsStore = createStore('calendar-db', 'appointments');
-  private operationsStore = createStore('calendar-db', 'pending-ops');
+  private appointmentsStore = createStore('appointments-db', 'appointments');
+  private operationsStore = createStore('operations-db', 'operations');
 
   constructor() {}
 
