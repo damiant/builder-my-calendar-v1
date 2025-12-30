@@ -31,7 +31,7 @@
 
   <div class="calendar-wrapper">
     <nz-spin [nzSpinning]="appointmentService.loading()">
-      <nz-calendar>
+      <nz-calendar [ngModel]="selectedDate()" (ngModelChange)="onDateSelect($event)">
         <ul *nzDateCell="let date" class="events">
           @for (item of getAppointments(date); track item.id) {
           <li (click)="openEditModal($event, item)">
