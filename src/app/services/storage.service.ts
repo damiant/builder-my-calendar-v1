@@ -25,9 +25,19 @@ export class StorageService {
   async saveAppointment(appointment: Appointment): Promise<void> {
     try {
       await set(appointment.id, appointment, this.appointmentsStore);
+      console.log(`[StorageService] Appointment saved to IndexedDB: ${appointment.id}`);
     } catch (error) {
       console.error('Failed to save appointment to IndexedDB', error);
       throw error;
+    }
+  }
+
+  async getAppointmentById(id: string): Promise<Appointment | undefined> {
+    try {
+      return await get<Appointment>(id, this.appointmentsStore);
+    } catch (error) {
+      console.error('Failed to get appointment from IndexedDB', error);
+      return undefined;
     }
   }
 

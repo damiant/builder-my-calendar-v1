@@ -47,6 +47,7 @@ export class AppointmentModalComponent {
 
   visible = input.required<boolean>();
   appointment = input<Appointment | null>(null);
+  defaultDate = input<Date>(new Date());
 
   visibleChange = output<boolean>();
   save = output<Partial<Appointment>>();
@@ -79,7 +80,7 @@ export class AppointmentModalComponent {
         this.form.reset({
           category: 'work',
           allDay: false,
-          startDate: new Date(),
+          startDate: this.defaultDate(),
         });
       }
     });

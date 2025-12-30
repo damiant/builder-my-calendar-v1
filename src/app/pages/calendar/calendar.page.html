@@ -17,7 +17,7 @@
         <nz-option nzValue="work" nzLabel="Work"></nz-option>
         <nz-option nzValue="home" nzLabel="Home"></nz-option>
       </nz-select>
-      <button nz-button nzType="primary" (click)="openCreateModal()">
+      <button nz-button nzType="primary" class="create-appointment-btn" (click)="openCreateModal()">
         <span nz-icon nzType="plus"></span>
         New Appointment
       </button>
@@ -26,7 +26,7 @@
 
   <div class="calendar-wrapper">
     <nz-spin [nzSpinning]="appointmentService.loading()">
-      <nz-calendar>
+      <nz-calendar [ngModel]="selectedDate()" (ngModelChange)="onDateSelect($event)">
         <ul *nzDateCell="let date" class="events">
           @for (item of getAppointments(date); track item.id) {
           <li (click)="openEditModal($event, item)">
@@ -46,6 +46,7 @@
   <app-appointment-modal
     [visible]="isModalVisible()"
     [appointment]="editingAppointment()"
+    [defaultDate]="selectedDate()"
     (visibleChange)="isModalVisible.set($event)"
     (save)="onSaveAppointment($event)"
     (delete)="onDeleteAppointment($event)"

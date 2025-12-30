@@ -26,6 +26,10 @@
   min-width: 200px;
 }
 
+.create-appointment-btn {
+  margin-left: 20px;
+}
+
 .calendar-wrapper {
   background-color: var(--color-background);
   border-radius: var(--radius-lg);
