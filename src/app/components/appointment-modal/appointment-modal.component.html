@@ -1,0 +1,87 @@
+<nz-modal
+  [nzVisible]="visible()"
+  [nzTitle]="appointment() ? 'Edit Appointment' : 'New Appointment'"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkText]="appointment() ? 'Save Changes' : 'Create'"
+  [nzOkDisabled]="form.invalid"
+>
+  <div *nzModalContent>
+    @if (!networkService.isOnline()) {
+    <div class="offline-notice">
+      <span nz-icon nzType="wifi" nzTheme="outline"></span>
+      <span>Saving offline. Will sync when back online.</span>
+    </div>
+    }
+
+    <form nz-form [formGroup]="form" nzLayout="vertical">
+      <nz-form-item>
+        <nz-form-label nzRequired>Title</nz-form-label>
+        <nz-form-control nzErrorTip="Please enter a title">
+          <input nz-input formControlName="title" placeholder="e.g. Project Sync" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <div class="date-time-row">
+        <nz-form-item class="flex-1">
+          <nz-form-label nzRequired>Date</nz-form-label>
+          <nz-form-control nzErrorTip="Please select a date">
+            <nz-date-picker formControlName="startDate" class="w-full"></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+
+        @if (!form.get('allDay')?.value) {
+        <nz-form-item class="flex-1">
+          <nz-form-label>Time</nz-form-label>
+          <nz-form-control>
+            <nz-time-picker
+              formControlName="startTime"
+              nzFormat="HH:mm"
+              class="w-full"
+            ></nz-time-picker>
+          </nz-form-control>
+        </nz-form-item>
+        }
+      </div>
+
+      <nz-form-item>
+        <nz-form-control>
+          <label nz-checkbox formControlName="allDay">All Day Event</label>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label nzRequired>Category</nz-form-label>
+        <nz-form-control>
+          <nz-select formControlName="category">
+            <nz-option nzValue="work" nzLabel="Work" nzCustomContent>
+              <span class="category-dot work"></span> Work
+            </nz-option>
+            <nz-option nzValue="home" nzLabel="Home" nzCustomContent>
+              <span class="category-dot home"></span> Home
+            </nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label>Notes</nz-form-label>
+        <nz-form-control>
+          <textarea nz-input formControlName="notes" [nzAutosize]="{ minRows: 3 }"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+
+  <div *nzModalFooter>
+    @if (appointment()) {
+    <button nz-button nzType="default" nzDanger class="float-left" (click)="handleDelete()">
+      Delete
+    </button>
+    }
+    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+    <button nz-button nzType="primary" (click)="handleOk()" [disabled]="form.invalid">
+      {{ appointment() ? 'Save' : 'Create' }}
+    </button>
+  </div>
+</nz-modal>
