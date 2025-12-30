@@ -27,7 +27,7 @@
 }
 
 .create-appointment-btn {
-  margin-left: var(--spacing-sm);
+  margin-left: 20px;
 }
 
 .calendar-wrapper {
