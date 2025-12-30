@@ -68,7 +68,7 @@ h5,
 h6,
 .font-heading,
 .ant-modal-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading) !important;
   font-weight: 600;
   color: var(--color-text);
   margin: 0;
