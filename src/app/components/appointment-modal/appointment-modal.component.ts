@@ -47,6 +47,7 @@ export class AppointmentModalComponent {
 
   visible = input.required<boolean>();
   appointment = input<Appointment | null>(null);
+  defaultDate = input<Date>(new Date());
 
   visibleChange = output<boolean>();
   save = output<Partial<Appointment>>();
