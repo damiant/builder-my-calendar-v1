@@ -1,8 +1,18 @@
+import 'zone.js';
+import 'zone.js/testing';
 import { TestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { StorageService } from './storage.service';
 import * as idbKeyval from 'idb-keyval';
 import { Appointment } from '../models/appointment.model';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
+
+// Initialize the Angular testing environment
+try {
+  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
+} catch (e) {
+  // Environment already initialized
+}
 
 // Mock idb-keyval
 vi.mock('idb-keyval', () => {
