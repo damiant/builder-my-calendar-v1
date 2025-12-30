@@ -34,6 +34,7 @@ import { NetworkService } from '../../services/network.service';
     NzTimePickerModule,
     NzSelectModule,
     NzSwitchModule,
+    NzCheckboxModule,
     NzButtonModule,
     NzIconModule,
   ],
