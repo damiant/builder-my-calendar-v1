@@ -67,8 +67,7 @@ h4,
 h5,
 h6,
 .font-heading,
-.ant-modal-title,
-.ant-form-item-label > label {
+.ant-modal-title {
   font-family: var(--font-heading);
   font-weight: 600;
   color: var(--color-text);
