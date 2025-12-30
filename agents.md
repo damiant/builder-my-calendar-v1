@@ -1,0 +1,10 @@
+- After making all the code changes needed to meet the user request run `npm run check` to check for build, lint and test errors and fix any found.
+- Always use built-in control flow rather than directives (like ngIf)
+- Using Signal inputs rather than @Input(), similarly do not use @Output, @ViewChild
+- Keep common css in app.css including all design tokens (eg padding, font sizes, colors)
+- Do not hard colors, font sizes, padding etc. Always use css variables
+- Use `fetch` rather than `httpClientModule`
+- Keep Angular templates in their own .html file
+- Use Angular signals or promises and avoid using rxjs
+- Always ng-zorro components in preference to creating components
+- Register all icons used in templates in `src/app/app.config.ts` before using them

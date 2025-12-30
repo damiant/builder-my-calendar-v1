@@ -1,0 +1,42 @@
+/* Design Tokens - CSS Variables */
+:root {
+  /* Colors */
+  --color-primary: #1890ff;
+  --color-text: rgba(0, 0, 0, 0.85);
+  --color-background: #ffffff;
+  --color-border: #d9d9d9;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Font Sizes */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+
+  /* Layout */
+  --height-full: 100%;
+  --width-full: 100%;
+}
+
+/* Common Styles */
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--height-full);
+  width: var(--width-full);
+}
+
+.app-container h1 {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  margin: 0;
+}

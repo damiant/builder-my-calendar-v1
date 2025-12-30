@@ -1,0 +1,53 @@
+{
+  "name": "builder-my-calendar",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "check": "npm run build && npm run lint && npm run test",
+    "lint": "prettier --check \"src/**/*.{ts,html,css,less,json}\" && ng lint",
+    "format": "prettier --write \"src/**/*.{ts,html,css,less,json}\""
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "packageManager": "npm@10.9.4",
+  "dependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/compiler": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/platform-browser": "^20.3.0",
+    "@angular/router": "^20.3.0",
+    "ng-zorro-antd": "^20.4.4",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.3.0",
+    "@angular/cli": "^20.3.0",
+    "@angular/compiler-cli": "^20.3.0",
+    "angular-eslint": "21.0.1",
+    "eslint": "^9.39.1",
+    "jsdom": "^27.1.0",
+    "less": "^4.2.0",
+    "prettier": "^3.7.4",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "8.46.4",
+    "vitest": "3.2.4",
+    "zone.js": "^0.15.1"
+  }
+}
