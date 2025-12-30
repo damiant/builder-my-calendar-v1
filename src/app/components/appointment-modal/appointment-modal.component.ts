@@ -80,7 +80,7 @@ export class AppointmentModalComponent {
         this.form.reset({
           category: 'work',
           allDay: false,
-          startDate: new Date(),
+          startDate: this.defaultDate(),
         });
       }
     });
