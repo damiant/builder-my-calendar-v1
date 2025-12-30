@@ -7,6 +7,16 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideServiceWorker } from '@angular/service-worker';
+import { provideNzIcons } from 'ng-zorro-antd/icon';
+import {
+  CalendarOutline,
+  PlusOutline,
+  SyncOutline,
+  CloudUploadOutline,
+  CloudOutline,
+  WifiOutline,
+  CloudDownloadOutline,
+} from '@ant-design/icons-angular/icons';
 
 registerLocaleData(en);
 
@@ -16,6 +26,15 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideNzI18n(en_US),
     provideAnimationsAsync(),
+    provideNzIcons([
+      CalendarOutline,
+      PlusOutline,
+      SyncOutline,
+      CloudUploadOutline,
+      CloudOutline,
+      WifiOutline,
+      CloudDownloadOutline,
+    ]),
     provideServiceWorker('ngsw-worker.js', {
       enabled: true,
       registrationStrategy: 'registerWhenStable:30000',
