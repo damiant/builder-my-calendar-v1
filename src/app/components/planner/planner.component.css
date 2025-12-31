@@ -59,7 +59,12 @@
 }
 
 .day-name {
-  font-family: Roboto, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.85);
@@ -67,7 +72,12 @@
 }
 
 .appointment-time {
-  font-family: Roboto, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: 12px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.45);
@@ -83,7 +93,12 @@
 }
 
 .appointment-name {
-  font-family: Roboto, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.85);
@@ -92,7 +107,12 @@
 }
 
 .appointment-type {
-  font-family: Roboto, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.45);
@@ -111,7 +131,12 @@
 
 ::ng-deep .reschedule-btn {
   color: rgba(0, 0, 0, 0.45) !important;
-  font-family: Roboto, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 400;
   padding: 0 !important;
