@@ -1,4 +1,4 @@
-import { Component, inject, input, output, signal, effect } from '@angular/core';
+import { Component, inject, input, output, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -7,7 +7,7 @@ import {
   ReactiveFormsModule,
   FormsModule,
 } from '@angular/forms';
-import { Appointment, AppointmentCategory } from '../../models/appointment.model';
+import { Appointment } from '../../models/appointment.model';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
