@@ -123,7 +123,7 @@
   .planner-container {
     padding: var(--spacing-md);
   }
-  
+
   .week-cards-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);

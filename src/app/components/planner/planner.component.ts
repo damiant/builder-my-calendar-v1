@@ -23,37 +23,45 @@ interface WeekAppointment {
 })
 export class PlannerComponent {
   appointmentService = inject(AppointmentService);
-  
+
   selectedDate = input<Date>(new Date());
 
   getWeekAppointments(): WeekAppointment[] {
     const weekAppointments: WeekAppointment[] = [];
     const appointments = this.appointmentService.filteredAppointments();
-    
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    
-    appointments.forEach(appointment => {
+
+    const daysOfWeek = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+
+    appointments.forEach((appointment) => {
       const date = new Date(appointment.startDate);
       const dayName = daysOfWeek[date.getDay()];
       const time = this.formatTime(date);
-      
+
       weekAppointments.push({
         day: dayName,
         time: time,
         name: appointment.title,
         type: appointment.notes || '',
         category: appointment.category,
-        appointment: appointment
+        appointment: appointment,
       });
     });
-    
+
     // Sort by date
     weekAppointments.sort((a, b) => {
       const dateA = new Date(a.appointment.startDate);
       const dateB = new Date(b.appointment.startDate);
       return dateA.getTime() - dateB.getTime();
     });
-    
+
     return weekAppointments;
   }
 
