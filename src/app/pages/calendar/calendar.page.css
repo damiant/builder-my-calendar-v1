@@ -14,15 +14,17 @@
 .header-title-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0;
 }
 
 .header-title-wrapper h1 {
   margin: 0;
+  line-height: 1;
 }
 
 .main-subtitle {
   margin: 0;
+  line-height: 1.5;
 }
 
 .header-controls-row {
