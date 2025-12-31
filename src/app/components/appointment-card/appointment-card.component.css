@@ -1,0 +1,103 @@
+.appointment-card {
+  background: var(--color-background);
+  border: 1px solid var(--planner-card-border);
+  border-radius: var(--planner-card-radius);
+  box-shadow: var(--planner-card-shadow);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.appointment-card:hover {
+  box-shadow: var(--planner-card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--planner-card-padding);
+  border-bottom: 1px solid var(--planner-card-border);
+  background: var(--color-background);
+}
+
+.day-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.day-indicator {
+  width: var(--planner-indicator-size);
+  height: var(--planner-indicator-size);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.work-indicator {
+  background: var(--planner-indicator-blue);
+}
+
+.home-indicator {
+  background: var(--planner-indicator-red);
+}
+
+.day-name {
+  font-family: var(--font-body);
+  font-size: var(--planner-day-font-size);
+  font-weight: 500;
+  color: var(--planner-text-primary);
+  line-height: 1.5;
+}
+
+.appointment-time {
+  font-family: var(--font-body);
+  font-size: var(--planner-time-font-size);
+  font-weight: 400;
+  color: var(--planner-text-secondary);
+  line-height: 1.5;
+}
+
+.card-body {
+  padding: var(--planner-card-body-padding);
+}
+
+.practitioner-name {
+  font-family: var(--font-body);
+  font-size: var(--planner-name-font-size);
+  font-weight: 500;
+  color: var(--planner-text-primary);
+  line-height: 1.5;
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.appointment-type {
+  font-family: var(--font-body);
+  font-size: var(--planner-type-font-size);
+  font-weight: 400;
+  color: var(--planner-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.card-footer {
+  padding: var(--planner-card-footer-padding);
+  border-top: 1px solid var(--planner-card-border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reschedule-btn {
+  font-family: var(--font-body);
+  font-size: var(--planner-type-font-size);
+  font-weight: 400;
+  color: var(--planner-text-secondary);
+  padding: 0;
+  height: auto;
+  line-height: 1.5;
+}
+
+.reschedule-btn:hover {
+  color: var(--color-primary);
+}
