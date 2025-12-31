@@ -9,13 +9,13 @@ export class StorageService {
   private appointmentsStore = createStore('appointments-db', 'appointments');
   private operationsStore = createStore('operations-db', 'operations');
 
-  constructor() {}
+  // Constructor intentionally empty - no initialization needed
 
   // Appointments
   async loadAllAppointments(): Promise<Appointment[]> {
     try {
       const allEntries = await entries<string, Appointment>(this.appointmentsStore);
-      return allEntries.map(([_, appointment]) => appointment);
+      return allEntries.map(([, appointment]) => appointment);
     } catch (error) {
       console.error('Failed to load appointments from IndexedDB', error);
       return [];
@@ -54,7 +54,7 @@ export class StorageService {
   async getPendingOperations(): Promise<PendingOperation[]> {
     try {
       const allEntries = await entries<string, PendingOperation>(this.operationsStore);
-      return allEntries.map(([_, op]) => op).sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+      return allEntries.map(([, op]) => op).sort((a, b) => a.timestamp.localeCompare(b.timestamp));
     } catch (error) {
       console.error('Failed to load pending operations from IndexedDB', error);
       return [];

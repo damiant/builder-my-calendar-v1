@@ -14,7 +14,7 @@
 .header-title-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0;
+  margin-bottom: 40px;
 }
 
 .header-title-wrapper h1 {
@@ -145,19 +145,51 @@
   }
 }
 
+.content-area {
+  margin-top: var(--spacing-lg);
+}
+
 .planner-area {
   min-height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-background-subtle);
-  border-radius: var(--radius-lg);
-  border: 2px dashed var(--color-border);
+  width: 100%;
+}
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .planner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .planner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .planner-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .planner-empty-state {
   text-align: center;
   color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background);
 }
 
 .planner-icon {

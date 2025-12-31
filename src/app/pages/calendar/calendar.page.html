@@ -17,6 +17,7 @@
       </div>
 
       <div class="view-mode-container">
+        <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
         <nz-radio-group
           [ngModel]="viewMode()"
           (ngModelChange)="viewMode.set($event)"
@@ -27,6 +28,7 @@
           <label nz-radio-button nzValue="year">Year</label>
           <label nz-radio-button nzValue="planner">Planner</label>
         </nz-radio-group>
+        <!-- eslint-enable @angular-eslint/template/label-has-associated-control -->
       </div>
 
       <div class="actions-container">
@@ -48,35 +50,55 @@
     <p class="subtitle main-subtitle">Manage your work and home schedule</p>
   </div>
 
-  <div class="calendar-wrapper">
+  <div class="content-area">
     <nz-spin [nzSpinning]="appointmentService.loading()">
       @if (viewMode() === 'planner') {
       <div class="planner-area">
+        @if (appointmentService.filteredAppointments().length === 0) {
         <div class="planner-empty-state">
           <span nz-icon nzType="calendar" class="planner-icon"></span>
           <h3>Planner View</h3>
           <p>This area is currently empty. Start planning your schedule here.</p>
         </div>
+        } @else {
+        <div class="planner-grid">
+          @for ( appointment of appointmentService.filteredAppointments(); track appointment.id ) {
+          <app-appointment-card
+            [appointment]="appointment"
+            (cardClick)="openEditModal($event, appointment)"
+            (reschedule)="openEditModal($event, appointment)"
+          >
+          </app-appointment-card>
+          }
+        </div>
+        }
       </div>
       } @else {
-      <nz-calendar
-        [ngModel]="selectedDate()"
-        (ngModelChange)="onDateSelect($event)"
-        [nzMode]="viewMode() === 'year' ? 'year' : 'month'"
-      >
-        <ul *nzDateCell="let date" class="events">
-          @for (item of getAppointments(date); track item.id) {
-          <li (click)="openEditModal($event, item)">
-            <nz-badge
-              [nzStatus]="item.category === 'work' ? 'processing' : 'error'"
-              [nzText]="item.title"
-              [class.pending]="item.syncStatus === 'pending'"
+      <div class="calendar-wrapper">
+        <nz-calendar
+          [ngModel]="selectedDate()"
+          (ngModelChange)="onDateSelect($event)"
+          [nzMode]="viewMode() === 'year' ? 'year' : 'month'"
+        >
+          <ul *nzDateCell="let date" class="events">
+            @for (item of getAppointments(date); track item.id) {
+            <li
+              (click)="openEditModal($event, item)"
+              (keypress)="openEditModal($event, item)"
+              tabindex="0"
+              role="button"
             >
-            </nz-badge>
-          </li>
-          }
-        </ul>
-      </nz-calendar>
+              <nz-badge
+                [nzStatus]="item.category === 'work' ? 'processing' : 'error'"
+                [nzText]="item.title"
+                [class.pending]="item.syncStatus === 'pending'"
+              >
+              </nz-badge>
+            </li>
+            }
+          </ul>
+        </nz-calendar>
+      </div>
       }
     </nz-spin>
   </div>

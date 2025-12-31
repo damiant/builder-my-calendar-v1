@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppointmentService } from '../../services/appointment.service';
 import { Appointment, AppointmentCategory } from '../../models/appointment.model';
 import { AppointmentModalComponent } from '../../components/appointment-modal/appointment-modal.component';
+import { AppointmentCardComponent } from '../../components/appointment-card/appointment-card.component';
 import { OfflineIndicatorComponent } from '../../components/offline-indicator/offline-indicator.component';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
@@ -20,6 +21,7 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     CommonModule,
     FormsModule,
     AppointmentModalComponent,
+    AppointmentCardComponent,
     OfflineIndicatorComponent,
     NzCalendarModule,
     NzBadgeModule,
@@ -30,7 +32,7 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     NzRadioModule,
   ],
   templateUrl: './calendar.page.html',
-  styleUrls: ['./calendar.page.css'],
+  styleUrl: './calendar.page.css',
 })
 export class CalendarPage {
   appointmentService = inject(AppointmentService);
@@ -38,7 +40,7 @@ export class CalendarPage {
   isModalVisible = signal<boolean>(false);
   editingAppointment = signal<Appointment | null>(null);
   selectedDate = signal<Date>(new Date());
-  viewMode = signal<'month' | 'year' | 'planner'>('month');
+  viewMode = signal<'month' | 'year' | 'planner'>('planner');
 
   onDateSelect(date: Date): void {
     this.selectedDate.set(date);
@@ -56,9 +58,13 @@ export class CalendarPage {
     this.isModalVisible.set(true);
   }
 
-  openEditModal(event: MouseEvent, appointment: Appointment): void {
-    event.stopPropagation();
-    this.editingAppointment.set(appointment);
+  openEditModal(event: MouseEvent | KeyboardEvent | Appointment, appointment?: Appointment): void {
+    // Handle both direct appointment and event + appointment
+    const appt = appointment || (event as Appointment);
+    if (event instanceof MouseEvent || event instanceof KeyboardEvent) {
+      event.stopPropagation();
+    }
+    this.editingAppointment.set(appt);
     this.isModalVisible.set(true);
   }
 
