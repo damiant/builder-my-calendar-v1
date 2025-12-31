@@ -16,22 +16,22 @@
 }
 
 .offline-notice {
-  background-color: #fffbeb; /* Amber-50 */
-  border: 1px solid #fef3c7; /* Amber-100 */
-  color: #92400e; /* Amber-800 */
+  background-color: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-border);
+  color: var(--color-warning-text);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-md);
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  font-size: 13px;
+  font-size: var(--planner-type-font-size);
 }
 
 .category-dot {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: var(--planner-indicator-size);
+  height: var(--planner-indicator-size);
   border-radius: 50%;
   margin-right: var(--spacing-sm);
 }

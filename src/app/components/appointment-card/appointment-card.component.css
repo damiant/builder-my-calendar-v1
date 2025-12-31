@@ -118,7 +118,7 @@
     sans-serif;
   font-size: var(--planner-type-font-size);
   font-weight: 400;
-  color: #bfbfbf;
+  color: var(--color-text-disabled);
   padding: 0;
   height: auto;
   line-height: 1.5;
