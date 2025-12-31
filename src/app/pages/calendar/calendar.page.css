@@ -64,7 +64,8 @@
 .calendar-subtitle {
   border: 1px solid red;
   height: 100%;
-  margin: 0;
+  position: absolute;
+  margin-top: 20px;
   font-size: 13px;
   color: var(--color-text-secondary);
 }
