@@ -1,21 +1,21 @@
 .planner-container {
-  background-color: #fafafa;
-  padding: 24px;
+  background-color: var(--color-background-subtle);
+  padding: var(--spacing-lg);
   min-height: 600px;
 }
 
 .week-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: var(--spacing-lg);
   max-width: 1256px;
 }
 
 .appointment-card {
-  background: #fff;
-  border: 1px solid #f0f0f0;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+  background: var(--color-background);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: box-shadow 0.2s;
   display: flex;
@@ -30,9 +30,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  border-bottom: 1px solid #f0f0f0;
-  background: #fff;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-background);
   min-height: 54px;
   box-sizing: border-box;
 }
@@ -40,7 +40,7 @@
 .day-indicator {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-sm);
 }
 
 .category-dot {
@@ -59,33 +59,23 @@
 }
 
 .day-name {
-  font-family:
-    Roboto,
-    -apple-system,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: var(--font-ui);
   font-size: 14px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.85);
+  color: var(--color-text);
   line-height: 21px;
 }
 
 .appointment-time {
-  font-family:
-    Roboto,
-    -apple-system,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.45);
+  color: var(--color-text-secondary);
   line-height: 18px;
 }
 
 .card-content {
-  padding: 24px 16px;
+  padding: var(--spacing-lg) var(--spacing-md);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -93,36 +83,26 @@
 }
 
 .appointment-name {
-  font-family:
-    Roboto,
-    -apple-system,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: var(--font-ui);
   font-size: 16px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.85);
+  color: var(--color-text);
   line-height: 24px;
-  margin: 0 0 4px 0;
+  margin: 0 0 var(--spacing-xs) 0;
 }
 
 .appointment-type {
-  font-family:
-    Roboto,
-    -apple-system,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: var(--font-ui);
   font-size: 14px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.45);
+  color: var(--color-text-secondary);
   line-height: 21px;
   margin: 0;
 }
 
 .card-footer {
-  border-top: 1px solid #f0f0f0;
-  padding: 8px 16px;
+  border-top: 1px solid var(--color-border-subtle);
+  padding: var(--spacing-sm) var(--spacing-md);
   display: flex;
   justify-content: flex-end;
   min-height: 38px;
@@ -130,13 +110,8 @@
 }
 
 ::ng-deep .reschedule-btn {
-  color: rgba(0, 0, 0, 0.45) !important;
-  font-family:
-    Roboto,
-    -apple-system,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-ui);
   font-size: 14px;
   font-weight: 400;
   padding: 0 !important;
@@ -145,7 +120,7 @@
 }
 
 ::ng-deep .reschedule-btn:hover {
-  color: rgba(0, 0, 0, 0.65) !important;
+  color: var(--color-text) !important;
 }
 
 ::ng-deep .reschedule-btn span {
@@ -167,11 +142,11 @@
 
 @media (max-width: 767px) {
   .planner-container {
-    padding: 16px;
+    padding: var(--spacing-md);
   }
 
   .week-cards-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: var(--spacing-md);
   }
 }
