@@ -48,6 +48,11 @@
 
   /* Layout */
   --header-height: 64px;
+
+  /* State Colors */
+  --color-warning: #92400e;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fef3c7;
 }
 
 /* Base Styles */
