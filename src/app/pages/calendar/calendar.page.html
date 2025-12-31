@@ -37,22 +37,39 @@
 
   <div class="calendar-wrapper">
     <nz-spin [nzSpinning]="appointmentService.loading()">
-      <nz-calendar [ngModel]="selectedDate()" (ngModelChange)="onDateSelect($event)">
-        <ul *nzDateCell="let date" class="events">
-          @for (item of getAppointments(date); track item.id) {
-          <li (click)="openEditModal($event, item)">
-            <nz-badge
-              [nzStatus]="item.category === 'work' ? 'processing' : 'error'"
-              [nzText]="item.title"
-              [class.pending]="item.syncStatus === 'pending'"
-            >
-            </nz-badge>
-          </li>
-          }
-        </ul>
-      </nz-calendar>
+      @if (viewMode() === 'planner') {
+        <div class="planner-area">
+          <div class="planner-empty-state">
+            <span nz-icon nzType="schedule" class="planner-icon"></span>
+            <h3>Planner View</h3>
+            <p>This area is currently empty. Start planning your schedule here.</p>
+          </div>
+        </div>
+      } @else {
+        <nz-calendar
+          [ngModel]="selectedDate()"
+          (ngModelChange)="onDateSelect($event)"
+          [nzMode]="viewMode() === 'year' ? 'year' : 'month'"
+          [nzHeaderRender]="emptyHeader"
+        >
+          <ul *nzDateCell="let date" class="events">
+            @for (item of getAppointments(date); track item.id) {
+            <li (click)="openEditModal($event, item)">
+              <nz-badge
+                [nzStatus]="item.category === 'work' ? 'processing' : 'error'"
+                [nzText]="item.title"
+                [class.pending]="item.syncStatus === 'pending'"
+              >
+              </nz-badge>
+            </li>
+            }
+          </ul>
+        </nz-calendar>
+      }
     </nz-spin>
   </div>
+
+  <ng-template #emptyHeader></ng-template>
 
   <app-appointment-modal
     [visible]="isModalVisible()"
