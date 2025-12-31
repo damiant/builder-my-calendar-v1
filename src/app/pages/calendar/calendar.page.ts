@@ -46,6 +46,18 @@ export class CalendarPage {
     this.selectedDate.set(date);
   }
 
+  previousMonth(): void {
+    const current = new Date(this.selectedDate());
+    current.setMonth(current.getMonth() - 1);
+    this.selectedDate.set(current);
+  }
+
+  nextMonth(): void {
+    const current = new Date(this.selectedDate());
+    current.setMonth(current.getMonth() + 1);
+    this.selectedDate.set(current);
+  }
+
   getAppointments(date: Date): Appointment[] {
     return this.appointmentService.getAppointmentsForDate(date);
   }
