@@ -1,8 +1,14 @@
-<div class="appointment-card" (click)="onCardClick()">
+<div
+  class="appointment-card"
+  (click)="onCardClick()"
+  (keypress)="onCardClick()"
+  tabindex="0"
+  role="button"
+>
   <div class="card-header">
     <div class="day-info">
-      <span
-        class="day-indicator"
+      <span 
+        class="day-indicator" 
         [class.work-indicator]="appointment().category === 'work'"
         [class.home-indicator]="appointment().category === 'home'"
       ></span>
@@ -17,7 +23,12 @@
   </div>
 
   <div class="card-footer">
-    <button nz-button nzType="text" class="reschedule-btn" (click)="onRescheduleClick($event)">
+    <button 
+      nz-button 
+      nzType="text" 
+      class="reschedule-btn"
+      (click)="onRescheduleClick($event)"
+    >
       Reschedule
     </button>
   </div>

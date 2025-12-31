@@ -5,7 +5,6 @@ import {
   createAppointment,
   generateUUID,
   formatDateKey,
-  PendingOperation,
 } from '../models/appointment.model';
 import { StorageService } from './storage.service';
 import { SyncService } from './sync.service';
