@@ -60,8 +60,10 @@ export class CalendarPage {
     this.isModalVisible.set(true);
   }
 
-  openEditModal(event: MouseEvent, appointment: Appointment): void {
-    event.stopPropagation();
+  openEditModal(event: MouseEvent | null, appointment: Appointment): void {
+    if (event) {
+      event.stopPropagation();
+    }
     this.editingAppointment.set(appointment);
     this.isModalVisible.set(true);
   }
