@@ -13,8 +13,11 @@
 .header-title-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+}
+
+.header-title-wrapper h1 {
+  margin: 0;
 }
 
 .main-subtitle {
@@ -66,13 +69,7 @@
   position: relative;
 }
 
-.calendar-subtitle {
-  height: 100%;
-  position: absolute;
-  margin-top: 20px;
-  font-size: 13px;
-  color: var(--color-text-secondary);
-}
+/* Removed calendar-subtitle as it's no longer used */
 
 .events {
   list-style: none;
