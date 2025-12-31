@@ -13,6 +13,8 @@
 .header-title-wrapper {
   display: flex;
   flex-direction: column;
+  margin-top: var(--spacing-sm);
+  margin-bottom: calc(var(--spacing-md) * -1); /* Bring calendar closer */
 }
 
 .header-controls-row {
