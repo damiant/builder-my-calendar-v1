@@ -84,7 +84,12 @@
         >
           <ul *nzDateCell="let date" class="events">
             @for (item of getAppointments(date); track item.id) {
-              <li (click)="openEditModal($event, item)">
+              <li
+                (click)="openEditModal($event, item)"
+                (keypress)="openEditModal($event, item)"
+                tabindex="0"
+                role="button"
+              >
                 <nz-badge
                   [nzStatus]="item.category === 'work' ? 'processing' : 'error'"
                   [nzText]="item.title"
