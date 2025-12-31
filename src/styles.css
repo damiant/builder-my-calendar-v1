@@ -56,8 +56,6 @@ body {
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
   /* Layout */
-  --header-height: 64px;
-
   /* Planner Card Design Tokens (matching Figma) */
   --planner-card-border: #eeeeee;
   --planner-card-radius: 4px;
@@ -118,25 +116,6 @@ h6,
   position: relative;
 }
 
-.app-header {
-  height: var(--header-height);
-  background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
-  padding: 0 var(--spacing-lg);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-}
-
 .app-main {
   flex: 1;
   padding: var(--spacing-lg);
@@ -147,9 +126,6 @@ h6,
 }
 
 @media (max-width: 768px) {
-  .app-header {
-    padding: 0 var(--spacing-md);
-  }
   .app-main {
     padding: var(--spacing-md);
   }
