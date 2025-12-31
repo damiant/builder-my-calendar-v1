@@ -41,7 +41,7 @@ export class CalendarPage {
   editingAppointment = signal<Appointment | null>(null);
   selectedDate = signal<Date>(new Date());
   viewMode = signal<'month' | 'year' | 'planner'>(
-    (localStorage.getItem('calendarViewMode') as 'month' | 'year' | 'planner') || 'month'
+    (localStorage.getItem('calendarViewMode') as 'month' | 'year' | 'planner') || 'month',
   );
 
   constructor() {
