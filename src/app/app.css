@@ -122,3 +122,10 @@ h6,
     padding: var(--spacing-md);
   }
 }
+
+.floating-sync-status {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
