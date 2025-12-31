@@ -58,10 +58,13 @@ export class CalendarPage {
     this.isModalVisible.set(true);
   }
 
-  openEditModal(event: MouseEvent | Appointment, appointment?: Appointment): void {
+  openEditModal(
+    event: MouseEvent | KeyboardEvent | Appointment,
+    appointment?: Appointment,
+  ): void {
     // Handle both direct appointment and event + appointment
     const appt = appointment || (event as Appointment);
-    if (event instanceof MouseEvent) {
+    if (event instanceof MouseEvent || event instanceof KeyboardEvent) {
       event.stopPropagation();
     }
     this.editingAppointment.set(appt);
