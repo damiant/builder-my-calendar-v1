@@ -36,9 +36,10 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
         display: flex;
         align-items: center;
         gap: var(--spacing-xs);
-        padding: var(--spacing-xs) var(--spacing-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
         border-radius: var(--radius-full);
-        background-color: var(--color-background-subtle);
+        background-color: var(--color-background);
+        box-shadow: var(--shadow-md);
         cursor: help;
         font-size: 14px;
       }

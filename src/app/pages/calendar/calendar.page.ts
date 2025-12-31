@@ -11,6 +11,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule } from '@angular/forms';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
 
 @Component({
   selector: 'app-calendar-page',
@@ -26,6 +27,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     NzIconModule,
     NzSelectModule,
     NzSpinModule,
+    NzRadioModule,
   ],
   templateUrl: './calendar.page.html',
   styleUrls: ['./calendar.page.css'],
@@ -36,6 +38,7 @@ export class CalendarPage {
   isModalVisible = signal<boolean>(false);
   editingAppointment = signal<Appointment | null>(null);
   selectedDate = signal<Date>(new Date());
+  viewMode = signal<'month' | 'year' | 'planner'>('month');
 
   onDateSelect(date: Date): void {
     this.selectedDate.set(date);

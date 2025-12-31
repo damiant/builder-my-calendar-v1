@@ -2,31 +2,68 @@
   <app-offline-indicator></app-offline-indicator>
 
   <div class="page-header">
-    <div class="header-left">
-      <h1>My Appointments</h1>
-      <p class="subtitle">Manage your work and home schedule</p>
+    <div class="header-controls-row">
+      <div class="category-filter-container">
+        <nz-select
+          [ngModel]="appointmentService.selectedCategories()"
+          (ngModelChange)="onCategoryChange($event)"
+          nzMode="multiple"
+          nzPlaceHolder="Filter by category"
+          class="category-filter"
+        >
+          <nz-option nzValue="work" nzLabel="Work"></nz-option>
+          <nz-option nzValue="home" nzLabel="Home"></nz-option>
+        </nz-select>
+      </div>
+
+      <div class="view-mode-container">
+        <nz-radio-group
+          [ngModel]="viewMode()"
+          (ngModelChange)="viewMode.set($event)"
+          nzButtonStyle="solid"
+          class="view-mode-toggle"
+        >
+          <label nz-radio-button nzValue="month">Month</label>
+          <label nz-radio-button nzValue="year">Year</label>
+          <label nz-radio-button nzValue="planner">Planner</label>
+        </nz-radio-group>
+      </div>
+
+      <div class="actions-container">
+        <button
+          nz-button
+          nzType="primary"
+          class="create-appointment-btn"
+          (click)="openCreateModal()"
+        >
+          <span nz-icon nzType="plus"></span>
+          New Appointment
+        </button>
+      </div>
     </div>
-    <div class="header-right">
-      <nz-select
-        [ngModel]="appointmentService.selectedCategories()"
-        (ngModelChange)="onCategoryChange($event)"
-        nzMode="multiple"
-        nzPlaceHolder="Filter by category"
-        class="category-filter"
-      >
-        <nz-option nzValue="work" nzLabel="Work"></nz-option>
-        <nz-option nzValue="home" nzLabel="Home"></nz-option>
-      </nz-select>
-      <button nz-button nzType="primary" class="create-appointment-btn" (click)="openCreateModal()">
-        <span nz-icon nzType="plus"></span>
-        New Appointment
-      </button>
-    </div>
+  </div>
+
+  <div class="header-title-wrapper">
+    <h1>My Appointments</h1>
+    <p class="subtitle main-subtitle">Manage your work and home schedule</p>
   </div>
 
   <div class="calendar-wrapper">
     <nz-spin [nzSpinning]="appointmentService.loading()">
-      <nz-calendar [ngModel]="selectedDate()" (ngModelChange)="onDateSelect($event)">
+      @if (viewMode() === 'planner') {
+      <div class="planner-area">
+        <div class="planner-empty-state">
+          <span nz-icon nzType="calendar" class="planner-icon"></span>
+          <h3>Planner View</h3>
+          <p>This area is currently empty. Start planning your schedule here.</p>
+        </div>
+      </div>
+      } @else {
+      <nz-calendar
+        [ngModel]="selectedDate()"
+        (ngModelChange)="onDateSelect($event)"
+        [nzMode]="viewMode() === 'year' ? 'year' : 'month'"
+      >
         <ul *nzDateCell="let date" class="events">
           @for (item of getAppointments(date); track item.id) {
           <li (click)="openEditModal($event, item)">
@@ -40,6 +77,7 @@
           }
         </ul>
       </nz-calendar>
+      }
     </nz-spin>
   </div>
 
