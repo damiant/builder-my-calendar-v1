@@ -7,6 +7,17 @@
       <p class="subtitle">Manage your work and home schedule</p>
     </div>
     <div class="header-right">
+      <nz-radio-group
+        [ngModel]="viewMode()"
+        (ngModelChange)="viewMode.set($event)"
+        nzButtonStyle="solid"
+        class="view-mode-toggle"
+      >
+        <label nz-radio-button nzValue="month">Month</label>
+        <label nz-radio-button nzValue="year">Year</label>
+        <label nz-radio-button nzValue="planner">Planner</label>
+      </nz-radio-group>
+
       <nz-select
         [ngModel]="appointmentService.selectedCategories()"
         (ngModelChange)="onCategoryChange($event)"
