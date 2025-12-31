@@ -24,7 +24,7 @@
 
 .view-toggle {
   display: flex;
-  margin-right: 20px;
+  margin-right: var(--spacing-md);
 }
 
 .category-filter {
@@ -32,7 +32,7 @@
 }
 
 .create-appointment-btn {
-  margin-left: 20px;
+  margin-left: var(--spacing-md);
 }
 
 .calendar-wrapper {
@@ -52,7 +52,7 @@
 }
 
 .events li {
-  padding: 2px 4px;
+  padding: var(--spacing-xs);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background-color 0.2s;
