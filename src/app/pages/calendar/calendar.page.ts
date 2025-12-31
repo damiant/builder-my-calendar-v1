@@ -1,7 +1,7 @@
 import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppointmentService } from '../../services/appointment.service';
-import { Appointment, AppointmentCategory } from '../../models/appointment.model';
+import { Appointment, AppointmentCategory, formatDateKey } from '../../models/appointment.model';
 import { AppointmentModalComponent } from '../../components/appointment-modal/appointment-modal.component';
 import { AppointmentCardComponent } from '../../components/appointment-card/appointment-card.component';
 import { OfflineIndicatorComponent } from '../../components/offline-indicator/offline-indicator.component';
@@ -51,6 +51,10 @@ export class CalendarPage {
   }
 
   onDateSelect(date: Date): void {
+    const current = this.selectedDate();
+    if (this.viewMode() === 'month' && formatDateKey(current) === formatDateKey(date)) {
+      this.openCreateModal(date);
+    }
     this.selectedDate.set(date);
   }
 
