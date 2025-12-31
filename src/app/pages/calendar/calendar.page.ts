@@ -32,7 +32,7 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     NzRadioModule,
   ],
   templateUrl: './calendar.page.html',
-  styleUrls: ['./calendar.page.css'],
+  styleUrl: './calendar.page.css',
 })
 export class CalendarPage {
   appointmentService = inject(AppointmentService);

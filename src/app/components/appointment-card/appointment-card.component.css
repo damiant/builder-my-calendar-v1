@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 .appointment-card {
   background: var(--color-background);
   border: 1px solid var(--planner-card-border);
