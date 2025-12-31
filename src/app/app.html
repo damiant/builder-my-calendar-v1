@@ -1,21 +1,4 @@
 <div class="app-shell">
-  <header class="app-header">
-    <div class="header-actions">
-      @if (updateService.updateAvailable()) {
-        <button
-          nz-button
-          nzType="primary"
-          nzSize="small"
-          (click)="updateService.activateUpdate()"
-          nz-tooltip="A new version is available. Click to reload."
-        >
-          <span nz-icon nzType="cloud-download"></span>
-          Update Available
-        </button>
-      }
-    </div>
-  </header>
-
   <main class="app-main">
     <router-outlet></router-outlet>
   </main>
