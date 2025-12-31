@@ -118,6 +118,6 @@ h6,
     padding: 0 var(--spacing-md);
   }
   .app-main {
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) 20px;
   }
 }
