@@ -49,6 +49,7 @@
     <h1>My Appointments</h1>
     <p class="subtitle main-subtitle">Manage your work and home schedule</p>
 
+    @if (viewMode() !== 'planner') {
     <div class="calendar-navigation">
       <button nz-button nzType="text" (click)="previousMonth()" class="nav-btn">
         <span nz-icon nzType="left"></span>
@@ -57,6 +58,7 @@
         <span nz-icon nzType="right"></span>
       </button>
     </div>
+    }
   </div>
 
   <div class="content-area">
