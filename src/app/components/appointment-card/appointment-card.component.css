@@ -50,7 +50,11 @@
 }
 
 .day-name {
-  font-family: Roboto, -apple-system, system-ui, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    system-ui,
+    sans-serif;
   font-size: var(--planner-day-font-size);
   font-weight: 500;
   color: var(--planner-text-primary);
@@ -58,7 +62,11 @@
 }
 
 .appointment-time {
-  font-family: Roboto, -apple-system, system-ui, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    system-ui,
+    sans-serif;
   font-size: var(--planner-time-font-size);
   font-weight: 400;
   color: var(--planner-text-secondary);
@@ -70,7 +78,11 @@
 }
 
 .practitioner-name {
-  font-family: Roboto, -apple-system, system-ui, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    system-ui,
+    sans-serif;
   font-size: var(--planner-name-font-size);
   font-weight: 500;
   color: var(--planner-text-primary);
@@ -79,7 +91,11 @@
 }
 
 .appointment-type {
-  font-family: Roboto, -apple-system, system-ui, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    system-ui,
+    sans-serif;
   font-size: var(--planner-type-font-size);
   font-weight: 400;
   color: var(--planner-text-secondary);
@@ -95,7 +111,11 @@
 }
 
 .reschedule-btn {
-  font-family: Roboto, -apple-system, system-ui, sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    system-ui,
+    sans-serif;
   font-size: var(--planner-type-font-size);
   font-weight: 400;
   color: #bfbfbf;

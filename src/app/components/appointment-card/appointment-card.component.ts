@@ -12,7 +12,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 })
 export class AppointmentCardComponent {
   appointment = input.required<Appointment>();
-  
+
   reschedule = output<Appointment>();
   cardClick = output<Appointment>();
 
