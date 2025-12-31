@@ -12,7 +12,9 @@
         (ngModelChange)="onViewModeChange($event)"
         class="view-toggle"
       >
+        <!-- eslint-disable-next-line @angular-eslint/template/label-has-associated-control -->
         <label nz-radio-button nzValue="calendar">Calendar</label>
+        <!-- eslint-disable-next-line @angular-eslint/template/label-has-associated-control -->
         <label nz-radio-button nzValue="planner">Planner</label>
       </nz-radio-group>
       <nz-select
