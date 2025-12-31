@@ -86,3 +86,35 @@
     width: 100%;
   }
 }
+
+.planner-area {
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background-subtle);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--color-border);
+  margin: var(--spacing-md) 0;
+}
+
+.planner-empty-state {
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.planner-icon {
+  font-size: 64px;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-tertiary);
+  display: block;
+}
+
+.view-mode-toggle {
+  margin-right: var(--spacing-sm);
+}
+
+/* Hide the default radio group in nz-calendar header since we have our own in the page header */
+::ng-deep .ant-picker-calendar-header .ant-radio-group {
+  display: none !important;
+}
