@@ -51,11 +51,11 @@
 }
 
 .category-dot.work {
-  background-color: #ff4d4f;
+  background-color: var(--color-work);
 }
 
 .category-dot.home {
-  background-color: #1890ff;
+  background-color: var(--color-home);
 }
 
 .day-name {
