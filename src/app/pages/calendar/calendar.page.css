@@ -22,6 +22,10 @@
   align-items: center;
 }
 
+.view-toggle {
+  display: flex;
+}
+
 .category-filter {
   min-width: 200px;
 }
