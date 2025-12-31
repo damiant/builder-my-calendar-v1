@@ -48,6 +48,15 @@
   <div class="header-title-wrapper">
     <h1>My Appointments</h1>
     <p class="subtitle main-subtitle">Manage your work and home schedule</p>
+
+    <div class="calendar-navigation">
+      <button nz-button nzType="text" (click)="previousMonth()" class="nav-btn">
+        <span nz-icon nzType="left"></span>
+      </button>
+      <button nz-button nzType="text" (click)="nextMonth()" class="nav-btn">
+        <span nz-icon nzType="right"></span>
+      </button>
+    </div>
   </div>
 
   <div class="content-area">
