@@ -145,17 +145,19 @@
   }
 }
 
+.content-area {
+  margin-top: var(--spacing-lg);
+}
+
 .planner-area {
   min-height: 500px;
-  background-color: var(--color-background-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
+  width: 100%;
 }
 
 .planner-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
   width: 100%;
 }
 
