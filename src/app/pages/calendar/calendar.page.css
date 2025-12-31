@@ -23,6 +23,33 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 24px;
+  position: relative;
+}
+
+.calendar-navigation {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+  align-items: center;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50% !important;
+  color: var(--color-text-secondary);
+  background: var(--color-background);
+  border: 1px solid var(--color-border) !important;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary) !important;
+  background: var(--color-primary-bg);
 }
 
 .header-title-wrapper h1 {
