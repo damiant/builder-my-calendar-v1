@@ -52,11 +52,24 @@
     <nz-spin [nzSpinning]="appointmentService.loading()">
       @if (viewMode() === 'planner') {
       <div class="planner-area">
+        @if (appointmentService.filteredAppointments().length === 0) {
         <div class="planner-empty-state">
           <span nz-icon nzType="calendar" class="planner-icon"></span>
           <h3>Planner View</h3>
           <p>This area is currently empty. Start planning your schedule here.</p>
         </div>
+        } @else {
+        <div class="planner-grid">
+          @for (appointment of appointmentService.filteredAppointments(); track appointment.id) {
+          <app-appointment-card
+            [appointment]="appointment"
+            (cardClick)="openEditModal($event, appointment)"
+            (reschedule)="openEditModal($event, appointment)"
+          >
+          </app-appointment-card>
+          }
+        </div>
+        }
       </div>
       } @else {
       <nz-calendar
