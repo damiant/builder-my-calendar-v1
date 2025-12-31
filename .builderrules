@@ -1,1 +1,2 @@
 ensure all requirements from agents.md are met
+When importing a figma design create a new component and use ng-zorro design system rather than creating html/css from scratch.

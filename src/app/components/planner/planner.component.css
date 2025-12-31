@@ -1,0 +1,152 @@
+.planner-container {
+  background-color: var(--color-background-subtle);
+  padding: var(--spacing-lg);
+  min-height: 600px;
+}
+
+.week-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  max-width: 1256px;
+}
+
+.appointment-card {
+  background: var(--color-background);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-card:hover {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-background);
+  min-height: 54px;
+  box-sizing: border-box;
+}
+
+.day-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.category-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.category-dot.work {
+  background-color: var(--color-work);
+}
+
+.category-dot.home {
+  background-color: var(--color-home);
+}
+
+.day-name {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 21px;
+}
+
+.appointment-time {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 18px;
+}
+
+.card-content {
+  padding: var(--spacing-lg) var(--spacing-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appointment-name {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 24px;
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.appointment-type {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 21px;
+  margin: 0;
+}
+
+.card-footer {
+  border-top: 1px solid var(--color-border-subtle);
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  justify-content: flex-end;
+  min-height: 38px;
+  align-items: center;
+}
+
+::ng-deep .reschedule-btn {
+  color: var(--color-text-secondary) !important;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0 !important;
+  height: auto !important;
+  line-height: 21px;
+}
+
+::ng-deep .reschedule-btn:hover {
+  color: var(--color-text) !important;
+}
+
+::ng-deep .reschedule-btn span {
+  text-decoration: none;
+}
+
+/* Responsive design */
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .week-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .week-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .planner-container {
+    padding: var(--spacing-md);
+  }
+
+  .week-cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}

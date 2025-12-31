@@ -4,13 +4,17 @@ import { AppointmentService } from '../../services/appointment.service';
 import { Appointment, AppointmentCategory } from '../../models/appointment.model';
 import { AppointmentModalComponent } from '../../components/appointment-modal/appointment-modal.component';
 import { OfflineIndicatorComponent } from '../../components/offline-indicator/offline-indicator.component';
+import { PlannerComponent } from '../../components/planner/planner.component';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { FormsModule } from '@angular/forms';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+
+type ViewMode = 'calendar' | 'planner';
 
 @Component({
   selector: 'app-calendar-page',
@@ -20,11 +24,13 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     FormsModule,
     AppointmentModalComponent,
     OfflineIndicatorComponent,
+    PlannerComponent,
     NzCalendarModule,
     NzBadgeModule,
     NzButtonModule,
     NzIconModule,
     NzSelectModule,
+    NzRadioModule,
     NzSpinModule,
   ],
   templateUrl: './calendar.page.html',
@@ -36,6 +42,7 @@ export class CalendarPage {
   isModalVisible = signal<boolean>(false);
   editingAppointment = signal<Appointment | null>(null);
   selectedDate = signal<Date>(new Date());
+  viewMode = signal<ViewMode>('calendar');
 
   onDateSelect(date: Date): void {
     this.selectedDate.set(date);
@@ -53,8 +60,10 @@ export class CalendarPage {
     this.isModalVisible.set(true);
   }
 
-  openEditModal(event: MouseEvent, appointment: Appointment): void {
-    event.stopPropagation();
+  openEditModal(event: MouseEvent | null, appointment: Appointment): void {
+    if (event) {
+      event.stopPropagation();
+    }
     this.editingAppointment.set(appointment);
     this.isModalVisible.set(true);
   }
@@ -77,5 +86,9 @@ export class CalendarPage {
 
   onCategoryChange(categories: AppointmentCategory[]): void {
     this.appointmentService.setSelectedCategories(categories);
+  }
+
+  onViewModeChange(mode: ViewMode): void {
+    this.viewMode.set(mode);
   }
 }
