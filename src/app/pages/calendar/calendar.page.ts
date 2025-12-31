@@ -40,7 +40,7 @@ export class CalendarPage {
   isModalVisible = signal<boolean>(false);
   editingAppointment = signal<Appointment | null>(null);
   selectedDate = signal<Date>(new Date());
-  viewMode = signal<'month' | 'year' | 'planner'>('month');
+  viewMode = signal<'month' | 'year' | 'planner'>('planner');
 
   onDateSelect(date: Date): void {
     this.selectedDate.set(date);
