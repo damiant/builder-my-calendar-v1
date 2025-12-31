@@ -85,6 +85,20 @@
   .category-filter {
     width: 100%;
   }
+
+  .view-mode-toggle {
+    margin-right: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .view-mode-toggle ::ng-deep .ant-radio-button-wrapper {
+    flex: 1;
+    text-align: center;
+  }
+
+  .view-mode-toggle {
+    display: flex;
+  }
 }
 
 .planner-area {
