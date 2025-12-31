@@ -175,7 +175,28 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+
+  .header-title-wrapper {
+    margin-bottom: 12px;
+  }
+
+  .header-title-wrapper h1 {
+    padding-top: 8px;
+    font-size: 20px;
+  }
+
+  .content-area {
+    margin-top: var(--spacing-sm);
+  }
+
+  .calendar-wrapper {
+    padding: var(--spacing-xs);
+  }
+
+  ::ng-deep .ant-picker-cell-inner {
+    min-height: 50px;
   }
 
   .category-filter-container,
