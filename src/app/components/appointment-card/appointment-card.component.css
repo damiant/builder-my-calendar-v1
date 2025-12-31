@@ -35,6 +35,8 @@
   flex-shrink: 0;
 }
 
+/* Color indicators: Blue for work (professional), Red for home (personal)
+   Note: Figma shows all blue but this follows standard UI conventions */
 .work-indicator {
   background: var(--planner-indicator-blue);
 }
@@ -69,7 +71,7 @@
   font-weight: 500;
   color: var(--planner-text-primary);
   line-height: 1.5;
-  margin: 0 0 var(--spacing-xs) 0;
+  margin: 0 0 4px 0;
 }
 
 .appointment-type {
