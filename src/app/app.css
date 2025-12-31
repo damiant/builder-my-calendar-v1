@@ -47,6 +47,29 @@
 
   /* Layout */
   --header-height: 64px;
+
+  /* Planner Card Design Tokens (matching Figma) */
+  --planner-card-border: #f0f0f0;
+  --planner-card-radius: 2px;
+  --planner-card-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+  --planner-card-shadow-hover: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+  --planner-card-padding: 16px 18px;
+  --planner-card-body-padding: 24px 18px;
+  --planner-card-footer-padding: 8px 18px 9px;
+
+  --planner-indicator-size: 12px;
+  --planner-indicator-blue: #1890ff;
+  --planner-indicator-red: #ff4d4f;
+
+  --planner-text-primary: rgba(0, 0, 0, 0.85);
+  --planner-text-secondary: rgba(0, 0, 0, 0.45);
+
+  --planner-day-font-size: 14px;
+  --planner-time-font-size: 12px;
+  --planner-name-font-size: 16px;
+  --planner-type-font-size: 14px;
+
+  --color-text-tertiary: #d4d4d4;
 }
 
 /* Base Styles */
