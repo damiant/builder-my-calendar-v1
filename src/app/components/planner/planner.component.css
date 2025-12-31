@@ -1,0 +1,131 @@
+.planner-container {
+  background-color: var(--color-background-subtle);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+}
+
+.week-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1300px;
+}
+
+.appointment-card {
+  background: var(--color-background);
+  border: 1px solid #f0f0f0;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.appointment-card:hover {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid #f0f0f0;
+  background: var(--color-background);
+}
+
+.day-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.category-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.category-dot.work {
+  background-color: #1890ff;
+}
+
+.category-dot.home {
+  background-color: #ff4d4f;
+}
+
+.day-name {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 21px;
+}
+
+.appointment-time {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 18px;
+}
+
+.card-content {
+  padding: var(--spacing-lg) var(--spacing-md);
+  min-height: 80px;
+}
+
+.appointment-name {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 24px;
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.appointment-type {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 21px;
+  margin: 0;
+}
+
+.card-footer {
+  border-top: 1px solid #f0f0f0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reschedule-btn {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0;
+  height: auto;
+}
+
+.reschedule-btn:hover {
+  color: var(--color-primary);
+}
+
+/* Responsive design */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .week-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .planner-container {
+    padding: var(--spacing-md);
+  }
+  
+  .week-cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}

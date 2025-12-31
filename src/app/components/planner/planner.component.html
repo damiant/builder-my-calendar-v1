@@ -1,0 +1,31 @@
+<div class="planner-container">
+  <div class="week-cards-grid">
+    @for (item of getWeekAppointments(); track item.appointment.id) {
+      <div class="appointment-card">
+        <div class="card-header">
+          <div class="day-indicator">
+            <span class="category-dot" [class.work]="item.category === 'work'" [class.home]="item.category === 'home'"></span>
+            <span class="day-name">{{ item.day }}</span>
+          </div>
+          <span class="appointment-time">{{ item.time }}</span>
+        </div>
+        
+        <div class="card-content">
+          <h3 class="appointment-name">{{ item.name }}</h3>
+          <p class="appointment-type">{{ item.type }}</p>
+        </div>
+        
+        <div class="card-footer">
+          <button 
+            nz-button 
+            nzType="link" 
+            class="reschedule-btn"
+            (click)="onReschedule(item.appointment)"
+          >
+            Reschedule
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
