@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppointmentService } from '../../services/appointment.service';
 import { Appointment } from '../../models/appointment.model';
@@ -25,6 +25,7 @@ export class PlannerComponent {
   appointmentService = inject(AppointmentService);
 
   selectedDate = input<Date>(new Date());
+  edit = output<Appointment>();
 
   getWeekAppointments(): WeekAppointment[] {
     const weekAppointments: WeekAppointment[] = [];
@@ -75,7 +76,6 @@ export class PlannerComponent {
   }
 
   onReschedule(appointment: Appointment): void {
-    // This will be handled by parent component
-    console.log('Reschedule appointment:', appointment);
+    this.edit.emit(appointment);
   }
 }
