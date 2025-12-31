@@ -67,10 +67,14 @@
   background-color: var(--color-background);
   border-radius: var(--radius-lg);
   padding: var(--spacing-md);
-  padding-top: 64px; /* Space for absolute header */
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border);
   position: relative;
+}
+
+::ng-deep nz-calendar {
+  display: block;
+  padding-top: 40px;
 }
 
 /* Removed calendar-subtitle as it's no longer used */
