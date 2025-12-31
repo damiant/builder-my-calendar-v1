@@ -59,25 +59,25 @@ body {
   --header-height: 64px;
 
   /* Planner Card Design Tokens (matching Figma) */
-  --planner-card-border: #f0f0f0;
-  --planner-card-radius: 2px;
-  --planner-card-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
-  --planner-card-shadow-hover: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
-  --planner-card-padding: 16px 18px;
-  --planner-card-body-padding: 24px 18px;
-  --planner-card-footer-padding: 8px 18px 9px;
+  --planner-card-border: #eeeeee;
+  --planner-card-radius: 4px;
+  --planner-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --planner-card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --planner-card-padding: 16px 20px;
+  --planner-card-body-padding: 28px 20px;
+  --planner-card-footer-padding: 10px 20px;
 
-  --planner-indicator-size: 12px;
+  --planner-indicator-size: 10px;
   --planner-indicator-blue: #1890ff;
   --planner-indicator-red: #ff4d4f;
 
-  --planner-text-primary: rgba(0, 0, 0, 0.85);
-  --planner-text-secondary: rgba(0, 0, 0, 0.45);
+  --planner-text-primary: #262626;
+  --planner-text-secondary: #8c8c8c;
 
   --planner-day-font-size: 14px;
   --planner-time-font-size: 12px;
-  --planner-name-font-size: 16px;
-  --planner-type-font-size: 14px;
+  --planner-name-font-size: 15px;
+  --planner-type-font-size: 13px;
 
   --color-text-tertiary: #d4d4d4;
 }

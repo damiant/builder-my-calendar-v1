@@ -98,10 +98,11 @@
   font-family: Roboto, -apple-system, system-ui, sans-serif;
   font-size: var(--planner-type-font-size);
   font-weight: 400;
-  color: var(--planner-text-secondary);
+  color: #bfbfbf;
   padding: 0;
   height: auto;
   line-height: 1.5;
+  transition: color 0.2s;
 }
 
 .reschedule-btn:hover {
