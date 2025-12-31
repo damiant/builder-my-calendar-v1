@@ -169,3 +169,13 @@
 ::ng-deep .ant-picker-calendar-header .ant-radio-group {
   display: none !important;
 }
+
+::ng-deep .ant-picker-calendar-header {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: auto;
+  z-index: 100;
+  margin: 0 !important;
+  padding: 0 !important;
+}
