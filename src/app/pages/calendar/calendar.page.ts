@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppointmentService } from '../../services/appointment.service';
 import { Appointment, AppointmentCategory } from '../../models/appointment.model';
@@ -40,7 +40,15 @@ export class CalendarPage {
   isModalVisible = signal<boolean>(false);
   editingAppointment = signal<Appointment | null>(null);
   selectedDate = signal<Date>(new Date());
-  viewMode = signal<'month' | 'year' | 'planner'>('planner');
+  viewMode = signal<'month' | 'year' | 'planner'>(
+    (localStorage.getItem('calendarViewMode') as 'month' | 'year' | 'planner') || 'month'
+  );
+
+  constructor() {
+    effect(() => {
+      localStorage.setItem('calendarViewMode', this.viewMode());
+    });
+  }
 
   onDateSelect(date: Date): void {
     this.selectedDate.set(date);
