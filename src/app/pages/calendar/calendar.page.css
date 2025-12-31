@@ -24,6 +24,7 @@
 
 .view-toggle {
   display: flex;
+  margin-right: 20px;
 }
 
 .category-filter {
