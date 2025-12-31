@@ -50,7 +50,6 @@
           [ngModel]="selectedDate()"
           (ngModelChange)="onDateSelect($event)"
           [nzMode]="viewMode() === 'year' ? 'year' : 'month'"
-          [nzHeaderRender]="emptyHeader"
         >
           <ul *nzDateCell="let date" class="events">
             @for (item of getAppointments(date); track item.id) {
@@ -68,8 +67,6 @@
       }
     </nz-spin>
   </div>
-
-  <ng-template #emptyHeader></ng-template>
 
   <app-appointment-modal
     [visible]="isModalVisible()"
