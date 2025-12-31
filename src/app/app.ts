@@ -11,7 +11,6 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
   standalone: true,
   imports: [RouterOutlet, SyncStatusComponent, NzButtonModule, NzIconModule, NzToolTipModule],
   templateUrl: './app.html',
-  styleUrl: './app.css',
 })
 export class App {
   updateService = inject(UpdateService);
