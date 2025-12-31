@@ -7,6 +7,14 @@
       <p class="subtitle">Manage your work and home schedule</p>
     </div>
     <div class="header-right">
+      <nz-radio-group
+        [ngModel]="viewMode()"
+        (ngModelChange)="onViewModeChange($event)"
+        class="view-toggle"
+      >
+        <label nz-radio-button nzValue="calendar">Calendar</label>
+        <label nz-radio-button nzValue="planner">Planner</label>
+      </nz-radio-group>
       <nz-select
         [ngModel]="appointmentService.selectedCategories()"
         (ngModelChange)="onCategoryChange($event)"
@@ -24,24 +32,28 @@
     </div>
   </div>
 
-  <div class="calendar-wrapper">
-    <nz-spin [nzSpinning]="appointmentService.loading()">
-      <nz-calendar [ngModel]="selectedDate()" (ngModelChange)="onDateSelect($event)">
-        <ul *nzDateCell="let date" class="events">
-          @for (item of getAppointments(date); track item.id) {
-          <li (click)="openEditModal($event, item)">
-            <nz-badge
-              [nzStatus]="item.category === 'work' ? 'processing' : 'error'"
-              [nzText]="item.title"
-              [class.pending]="item.syncStatus === 'pending'"
-            >
-            </nz-badge>
-          </li>
-          }
-        </ul>
-      </nz-calendar>
-    </nz-spin>
-  </div>
+  @if (viewMode() === 'calendar') {
+    <div class="calendar-wrapper">
+      <nz-spin [nzSpinning]="appointmentService.loading()">
+        <nz-calendar [ngModel]="selectedDate()" (ngModelChange)="onDateSelect($event)">
+          <ul *nzDateCell="let date" class="events">
+            @for (item of getAppointments(date); track item.id) {
+            <li (click)="openEditModal($event, item)">
+              <nz-badge
+                [nzStatus]="item.category === 'work' ? 'processing' : 'error'"
+                [nzText]="item.title"
+                [class.pending]="item.syncStatus === 'pending'"
+              >
+              </nz-badge>
+            </li>
+            }
+          </ul>
+        </nz-calendar>
+      </nz-spin>
+    </div>
+  } @else {
+    <app-planner [selectedDate]="selectedDate()"></app-planner>
+  }
 
   <app-appointment-modal
     [visible]="isModalVisible()"
