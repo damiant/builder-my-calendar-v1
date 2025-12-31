@@ -45,10 +45,10 @@
 
   <div class="header-title-wrapper">
     <h1>My Appointments</h1>
+    <p class="subtitle main-subtitle">Manage your work and home schedule</p>
   </div>
 
   <div class="calendar-wrapper">
-    <p class="subtitle calendar-subtitle">Manage your work and home schedule</p>
     <nz-spin [nzSpinning]="appointmentService.loading()">
       @if (viewMode() === 'planner') {
       <div class="planner-area">
