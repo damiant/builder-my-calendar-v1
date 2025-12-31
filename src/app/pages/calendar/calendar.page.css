@@ -113,9 +113,42 @@
   padding: 0 !important;
 }
 
+::ng-deep .ant-picker-date-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
 ::ng-deep .ant-picker-content {
   height: 100% !important;
+  width: 100% !important;
   table-layout: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .ant-picker-content thead {
+  display: block;
+}
+
+::ng-deep .ant-picker-content tbody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .ant-picker-content tr {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+::ng-deep .ant-picker-content th,
+::ng-deep .ant-picker-content td {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Removed calendar-subtitle as it's no longer used */
@@ -231,18 +264,14 @@
   flex-direction: column;
 }
 
-::ng-deep nz-spin {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
+::ng-deep nz-spin,
+::ng-deep .ant-spin-nested-loading,
 ::ng-deep .ant-spin-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
+  height: 100%;
 }
 
 .planner-area {
