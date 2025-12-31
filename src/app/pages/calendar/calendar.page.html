@@ -54,7 +54,7 @@
     </nz-spin>
   </div>
   } @else {
-  <app-planner [selectedDate]="selectedDate()"></app-planner>
+    <app-planner [selectedDate]="selectedDate()" (edit)="openEditModal(null, $event)"></app-planner>
   }
 
   <app-appointment-modal
