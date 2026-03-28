@@ -1,7 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppointmentService } from '../../services/appointment.service';
-import { Appointment, AppointmentCategory } from '../../models/appointment.model';
+import { Appointment, AppointmentCategory, formatDateKey } from '../../models/appointment.model';
 import { AppointmentModalComponent } from '../../components/appointment-modal/appointment-modal.component';
 import { AppointmentCardComponent } from '../../components/appointment-card/appointment-card.component';
 import { OfflineIndicatorComponent } from '../../components/offline-indicator/offline-indicator.component';
@@ -40,10 +40,34 @@ export class CalendarPage {
   isModalVisible = signal<boolean>(false);
   editingAppointment = signal<Appointment | null>(null);
   selectedDate = signal<Date>(new Date());
-  viewMode = signal<'month' | 'year' | 'planner'>('planner');
+  viewMode = signal<'month' | 'year' | 'planner'>(
+    (localStorage.getItem('calendarViewMode') as 'month' | 'year' | 'planner') || 'month',
+  );
+
+  constructor() {
+    effect(() => {
+      localStorage.setItem('calendarViewMode', this.viewMode());
+    });
+  }
 
   onDateSelect(date: Date): void {
+    const current = this.selectedDate();
+    if (this.viewMode() === 'month' && formatDateKey(current) === formatDateKey(date)) {
+      this.openCreateModal(date);
+    }
     this.selectedDate.set(date);
+  }
+
+  previousMonth(): void {
+    const current = new Date(this.selectedDate());
+    current.setMonth(current.getMonth() - 1);
+    this.selectedDate.set(current);
+  }
+
+  nextMonth(): void {
+    const current = new Date(this.selectedDate());
+    current.setMonth(current.getMonth() + 1);
+    this.selectedDate.set(current);
   }
 
   getAppointments(date: Date): Appointment[] {

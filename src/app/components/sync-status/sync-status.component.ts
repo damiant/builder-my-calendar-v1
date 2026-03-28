@@ -41,7 +41,7 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
         background-color: var(--color-background);
         box-shadow: var(--shadow-md);
         cursor: help;
-        font-size: 14px;
+        font-size: var(--planner-day-font-size);
       }
 
       .syncing {
@@ -49,7 +49,7 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
       }
 
       .pending {
-        color: #f59e0b; /* Amber-500 */
+        color: var(--color-warning);
       }
 
       .synced {

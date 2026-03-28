@@ -78,6 +78,19 @@ body {
   --planner-type-font-size: 13px;
 
   --color-text-tertiary: #d4d4d4;
+
+  /* Warning / Pending States */
+  --color-warning: #f59e0b;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fef3c7;
+  --color-warning-text: #92400e;
+
+  /* Disabled States */
+  --color-text-disabled: #bfbfbf;
+
+  /* Additional Spacing */
+  --spacing-xxs: 2px;
+  --spacing-sm-md: 12px;
 }
 
 body {
