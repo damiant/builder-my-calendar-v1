@@ -11,10 +11,10 @@ body {
 /* Design Tokens - CSS Variables */
 :root {
   /* Colors */
-  --color-primary: #65a30d; /* Lime-600 */
-  --color-primary-light: #84cc16; /* Lime-500 */
-  --color-primary-dark: #4d7c0f; /* Lime-700 */
-  --color-primary-bg: #f7fee7; /* Lime-50 */
+  --color-primary: #3b82f6; /* Blue-500 */
+  --color-primary-light: #60a5fa; /* Blue-400 */
+  --color-primary-dark: #1e40af; /* Blue-800 */
+  --color-primary-bg: #eff6ff; /* Blue-50 */
 
   --color-work: #3b82f6; /* Blue-500 */
   --color-work-bg: #eff6ff; /* Blue-50 */
@@ -66,8 +66,8 @@ body {
   --planner-card-footer-padding: 10px 20px;
 
   --planner-indicator-size: 10px;
-  --planner-indicator-blue: #1890ff;
-  --planner-indicator-red: #ff4d4f;
+  --planner-indicator-blue: #f97316;
+  --planner-indicator-red: #eab308;
 
   --planner-text-primary: #262626;
   --planner-text-secondary: #8c8c8c;
