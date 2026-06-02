@@ -154,3 +154,25 @@ h6,
   background-color: var(--color-primary-dark) !important;
   border-color: var(--color-primary-dark) !important;
 }
+
+/* Override ng-zorro radio button checked state */
+.ant-radio-button-wrapper-checked {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.ant-radio-button-wrapper-checked:hover {
+  border-color: var(--color-primary-light) !important;
+}
+
+.ant-radio-inner {
+  border-color: var(--color-primary) !important;
+}
+
+.ant-radio-checked .ant-radio-inner {
+  border-color: var(--color-primary) !important;
+}
+
+.ant-radio-checked .ant-radio-inner::after {
+  background-color: var(--color-primary) !important;
+}
